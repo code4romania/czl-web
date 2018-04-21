@@ -5,21 +5,7 @@ import purple from 'material-ui/colors/purple';
 import green from 'material-ui/colors/green';
 
 import { configure, addDecorator } from '@storybook/react';
-
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      light: purple[300],
-      main: purple[500],
-      dark: purple[700],
-    },
-    secondary: {
-      light: green[300],
-      main: green[500],
-      dark: green[700],
-    },
-  },
-});
+import theme from '../src/theme';
 
 addDecorator(story => (
   <MuiThemeProvider theme={theme}>{story()}</MuiThemeProvider>
