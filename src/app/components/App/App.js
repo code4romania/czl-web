@@ -5,7 +5,7 @@ import green from 'material-ui/colors/green';
 import Button from 'material-ui/Button';
 import logo from './logo.svg';
 import './App.css';
-import theme from './theme';
+import theme from '../../../theme';
 
 class App extends Component {
   render() {
