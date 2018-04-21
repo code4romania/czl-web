@@ -8,7 +8,7 @@ import CategoryBox from '../CategoryBox/CategoryBox';
 class CategoryBoxeslist extends Component {
 	renderCategories = () => this.props.categories.map((category) => {
 		return (
-			<Grid item key={category.title}>
+			<Grid item key={category.title} xs={12} sm={4} md={3}>
 				<CategoryBox {...category} onChange={this.props.onChange(category.id)} />
 			</Grid>
 		);
