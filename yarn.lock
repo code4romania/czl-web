@@ -2,6 +2,12 @@
 # yarn lockfile v1
 
 
+"@material-ui/icons@1.0.0-beta.42":
+  version "1.0.0-beta.42"
+  resolved "https://artifactory.hootops.com:443/artifactory/api/npm/hootsuite-npm/@material-ui/icons/-/icons-1.0.0-beta.42.tgz#1e0e45e8f4de533071c7e4532508fa79bf1f29d9"
+  dependencies:
+    recompose "^0.26.0"
+
 "@storybook/addon-actions@3.4.2", "@storybook/addon-actions@^3.4.2":
   version "3.4.2"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-3.4.2.tgz#ab45c37f57027257530577a9c1af6896ffb40156"
