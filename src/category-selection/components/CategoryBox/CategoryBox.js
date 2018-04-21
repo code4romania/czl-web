@@ -8,6 +8,10 @@ import Typography from 'material-ui/Typography';
 import './CategoryBox.css';
 
 class CategoryBox extends Component {
+	handleChange = event => {
+		this.props.onChange(event.target.checked);
+	};
+
 	render() {
 		return (
 			<Paper className="CategoryBox">
@@ -18,7 +22,7 @@ class CategoryBox extends Component {
 				</Typography>
 				<Switch
           checked={this.props.isActive}
-          onChange={this.props.onClick}
+          onChange={this.handleChange}
           color="secondary"
         />
 			</Paper>
@@ -29,7 +33,7 @@ class CategoryBox extends Component {
 CategoryBox.propTypes = {
 	title: PropTypes.string.isRequired,
 	isActive: PropTypes.bool.isRequired,
-	onClick: PropTypes.func.isRequired,
+	onChange: PropTypes.func.isRequired,
 	theme: PropTypes.object.isRequired
 };
 

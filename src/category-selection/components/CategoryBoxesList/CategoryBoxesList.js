@@ -9,7 +9,7 @@ class CategoryBoxeslist extends Component {
 	renderCategories = () => this.props.categories.map((category) => {
 		return (
 			<Grid item key={category.title}>
-				<CategoryBox {...category} />
+				<CategoryBox {...category} onChange={this.props.onChange(category.id)} />
 			</Grid>
 		);
 	});
@@ -30,6 +30,7 @@ class CategoryBoxeslist extends Component {
 
 CategoryBoxeslist.propTypes = {
 	categories: PropTypes.arrayOf(PropTypes.object).isRequired,
+	onChange: PropTypes.func.isRequired,
 	theme: PropTypes.object.isRequired
 };
 

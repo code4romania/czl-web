@@ -8,46 +8,46 @@ import CategoryBoxesList from './CategoryBoxesList';
 
 const categories = [
 	{
+		id: 0,
 		title: 'Educatie',
-		isActive: true,
-		onClick: action('clicked')
+		isActive: true
 	},
 	{
+		id: 1,
 		title: 'Sanatate',
-		isActive: false,
-		onClick: action('clicked')
+		isActive: false
 	},
 	{
+		id: 2,
 		title: 'Infrastructura',
-		isActive: true,
-		onClick: action('clicked')
+		isActive: true
 	},
 	{
+		id: 3,
 		title: 'Codul penal',
-		isActive: true,
-		onClick: action('clicked')
+		isActive: true
 	},
 	{
+		id: 4,
 		title: 'Codul fiscal',
-		isActive: false,
-		onClick: action('clicked')
+		isActive: false
 	},
 	{
+		id: 5,
 		title: 'Bugetul de stat',
-		isActive: false,
-		onClick: action('clicked')
+		isActive: false
 	},
 	{
+		id: 6,
 		title: 'Media',
-		isActive: true,
-		onClick: action('clicked')
+		isActive: true
 	},
 	{
+		id: 7,
 		title: 'Non-profit',
-		isActive: false,
-		onClick: action('clicked')
+		isActive: false
 	},
 ];
 
 storiesOf('CategorySelection', module)
-	.add('CategoryBoxesList', () => <CategoryBoxesList categories={categories} />);
+	.add('CategoryBoxesList', () => <CategoryBoxesList categories={categories} onChange={(id) => action(`category-change-${id}`)} />);
