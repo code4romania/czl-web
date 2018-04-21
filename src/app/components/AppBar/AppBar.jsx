@@ -139,6 +139,15 @@ AppBarBase.propTypes = {
 };
 
 
+AppBarBase.defaultProps = {
+  location: {
+    pathname: '/'
+  },
+  history: {
+    push: () => {}
+  }
+}
+
 
 const AppBar = withStyles(styles, { withTheme: true })(AppBarBase);
 
