@@ -27,11 +27,16 @@ const styles = theme => ({
       display: 'none'
     }
   },
+  topMenu: {
+    [theme.breakpoints.down('sm')]: {
+      display: 'none'
+    }
+  },
   userName: {
     marginLeft: 20,
     marginTop: -3
   },
-  topMenu: {
+  topToolbar: {
     display: 'flex',
     alignItems: 'center'
   }
@@ -74,11 +79,13 @@ class ButtonAppBar extends Component {
             </Typography>
             {!auth && <Button color="inherit">Login</Button>}
             {auth && (
-              <div className={classes.topMenu}>
-                <Button color="inherit">Home</Button>
-                <Button color="inherit">Categorii</Button>
-                <Button color="inherit">Propuneri legislative</Button>
-                <Button color="inherit">Institutii</Button>
+              <div className={classes.topToolbar}>
+                <div className={classes.topMenu}>
+                  <Button color="inherit">Home</Button>
+                  <Button color="inherit">Categorii</Button>
+                  <Button color="inherit">Propuneri legislative</Button>
+                  <Button color="inherit">Institutii</Button>
+                </div>
                 <Typography
                   variant="body1"
                   color="inherit"
