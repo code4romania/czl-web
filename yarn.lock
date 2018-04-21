@@ -34,7 +34,7 @@
 
 "@storybook/addon-viewport@^3.4.2":
   version "3.4.2"
-  resolved "https://artifactory.hootops.com:443/artifactory/api/npm/hootsuite-npm/@storybook/addon-viewport/-/addon-viewport-3.4.2.tgz#5212c8ccd10bf95149e7e4714780c36d78cb0d3f"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-viewport/-/addon-viewport-3.4.2.tgz#5212c8ccd10bf95149e7e4714780c36d78cb0d3f"
   dependencies:
     "@storybook/components" "3.4.2"
     babel-runtime "^6.26.0"
