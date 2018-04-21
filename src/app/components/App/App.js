@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { MuiThemeProvider } from 'material-ui/styles';
-import Grid from 'material-ui/Grid';
 import { withStyles } from 'material-ui/styles';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
