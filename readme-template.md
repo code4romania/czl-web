@@ -73,7 +73,7 @@ List any pending features and planned improvements for the project.
 
 ## License 
 
-This project is licensed under the MPL 2.0 License - see the LICENSE.md file for details
+This project is licensed under the MPL 2.0 License - see the [LICENSE](LICENSE) file for details
 
 ## About Code4Ro
 
