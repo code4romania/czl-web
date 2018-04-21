@@ -69,7 +69,9 @@ yarn build
 
 ## Repos and projects
 
-Mention all related repos and projects.
+Related projects:  
+https://github.com/code4romania/czl-scrape  
+https://github.com/code4romania/czl-api  
 
 ## Contributing
 
