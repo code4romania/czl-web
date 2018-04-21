@@ -6,5 +6,6 @@ import { linkTo } from '@storybook/addon-links';
 
 import CategoryBox from './CategoryBox';
 
-storiesOf('CategorySelection', module)
-	.add('CategoryBox', () => <CategoryBox title='Educatie' isActive={true} onClick={action('clicked')}/>);
+storiesOf('CategorySelection', module).add('CategoryBox', () => (
+  <CategoryBox title="Educatie" isActive={true} onClick={action('clicked')} />
+));
