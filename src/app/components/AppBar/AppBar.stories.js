@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-import AppBar from './AppBar';
+import { AppBar } from './AppBar';
 
 storiesOf('AppBar', module)
   .add('non authenthicated', () => <AppBar />)

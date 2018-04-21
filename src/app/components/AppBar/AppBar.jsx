@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import AppBar from 'material-ui/AppBar';
+import AppBarMUI from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+
+import { withRouter } from 'react-router';
+import { NavLink } from 'react-router-dom';
 
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Menu, { MenuItem } from 'material-ui/Menu';
@@ -42,7 +45,7 @@ const styles = theme => ({
   }
 });
 
-class ButtonAppBar extends Component {
+class AppBarBase extends Component {
   state = {
     anchorEl: null
   };
@@ -55,13 +58,13 @@ class ButtonAppBar extends Component {
     this.setState({ anchorEl: null });
   };
   render() {
-    const { classes, auth } = this.props;
+    const { classes, auth, location, history } = this.props;
     const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
 
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBarMUI position="static">
           <Toolbar>
             <IconButton
               className={`${classes.menuButton} ${classes.navIconHide}`}
@@ -81,10 +84,10 @@ class ButtonAppBar extends Component {
             {auth && (
               <div className={classes.topToolbar}>
                 <div className={classes.topMenu}>
-                  <Button color="inherit">Home</Button>
-                  <Button color="inherit">Categorii</Button>
-                  <Button color="inherit">Propuneri legislative</Button>
-                  <Button color="inherit">Institutii</Button>
+                  <Button color={location.pathname === '/' ? 'secondary': 'inherit'}  onClick={() => history.push('/')}>Home</Button>
+                  <Button color={location.pathname === '/categories' ? 'secondary': 'inherit'} onClick={() => history.push('/categories')}>Categorii</Button>
+                  <Button color={location.pathname === '/proposals' ? 'secondary': 'inherit'} onClick={() => history.push('/proposals')}>Propuneri legislative</Button>
+                  <Button color={location.pathname === '/institutions' ? 'secondary': 'inherit'} onClick={() => history.push('/institutions')}>Institutii</Button>
                 </div>
                 <Typography
                   variant="body1"
@@ -121,15 +124,26 @@ class ButtonAppBar extends Component {
               </div>
             )}
           </Toolbar>
-        </AppBar>
+        </AppBarMUI>
       </div>
     );
   }
 }
 
-ButtonAppBar.propTypes = {
+AppBarBase.propTypes = {
   classes: PropTypes.object.isRequired,
-  auth: PropTypes.object
+  auth: PropTypes.object,
+  match: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
 };
 
-export default withStyles(styles, { withTheme: true })(ButtonAppBar);
+
+
+const AppBar = withStyles(styles, { withTheme: true })(AppBarBase);
+
+export { AppBar };
+
+export default withRouter(AppBar);
+
+
