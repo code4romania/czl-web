@@ -28,10 +28,11 @@ As an extra feature, to give a sense of the wider context, CeZiceLegea will also
 
 ## Built With
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
-[Material UI](https://material-ui-next.com/) will make it look awesome.
-[React Router](https://github.com/ReactTraining/react-router) powers the navigation.
-[Storybook](https://github.com/storybooks/storybook) helps us with showcasing and developing decoupled components.
+* [Create React App](https://github.com/facebookincubator/create-react-app) was used to bootstrap the project.
+* [Material UI](https://material-ui-next.com/) will make it look awesome.
+* [React Router](https://github.com/ReactTraining/react-router) powers the navigation.
+* [Redux](https://redux.js.org/) for state management.
+* [Storybook](https://github.com/storybooks/storybook) helps us with showcasing and developing decoupled components.
 
 ### Prerequisites
 
