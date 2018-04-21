@@ -28,14 +28,13 @@ As an extra feature, to give a sense of the wider context, CeZiceLegea will also
 
 ## Built With
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
-
-Storybook helps us with showcasing components.
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). [Storybook](https://github.com/storybooks/storybook) helps us with showcasing components.
 
 ### Prerequisites
 
-Node >= 8.9.4.
-Yarn >= 1.3.2.
+[Node](https://nodejs.org/en/) >= 8.9.4.
+
+[Yarn](https://yarnpkg.com/en/) >= 1.3.2.
 
 ## Deployment
 
@@ -44,23 +43,19 @@ First of all, install dependencies:
 yarn install
 ```
 
-Launch application locally:
+Launch application locally (http://localhost:3000/):
 
 ```bash
 yarn start
 ```
 
-Check `http://localhost:3000/`
-
-Launch showcase of components:
+Launch showcase of components (http://localhost:9009/):
 
 ```bash
 yarn storybook
 ```
 
-Check `http://localhost:9009/`
-
-Run unit tests:
+Run unit tests, [Jest](https://facebook.github.io/jest/)-based (not much here ATM, hackaton...):
 
 ```bash
 yarn tests
