@@ -24,14 +24,22 @@ const styles = theme => ({
   },
   navIconHide: {
     [theme.breakpoints.up('md')]: {
-      display: 'none',
-    },
+      display: 'none'
+    }
+  },
+  userName: {
+    marginLeft: 20,
+    marginTop: -3
+  },
+  topMenu: {
+    display: 'flex',
+    alignItems: 'center'
   }
 });
 
 class ButtonAppBar extends Component {
   state = {
-    anchorEl: null,
+    anchorEl: null
   };
 
   handleMenu = event => {
@@ -66,7 +74,18 @@ class ButtonAppBar extends Component {
             </Typography>
             {!auth && <Button color="inherit">Login</Button>}
             {auth && (
-              <div>
+              <div className={classes.topMenu}>
+                <Button color="inherit">Home</Button>
+                <Button color="inherit">Categorii</Button>
+                <Button color="inherit">Propuneri legislative</Button>
+                <Button color="inherit">Institutii</Button>
+                <Typography
+                  variant="body1"
+                  color="inherit"
+                  className={classes.userName}
+                >
+                  {auth.user.name}
+                </Typography>
                 <IconButton
                   aria-owns={open ? 'menu-appbar' : null}
                   aria-haspopup="true"
