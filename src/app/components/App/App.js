@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-import purple from 'material-ui/colors/purple';
-import green from 'material-ui/colors/green';
-import Button from 'material-ui/Button';
+import { MuiThemeProvider } from 'material-ui/styles';
 import theme from '../../../theme';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import AppBar from '../AppBar/AppBar';
 

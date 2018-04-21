@@ -9,7 +9,6 @@ import IconButton from 'material-ui/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
 import { withRouter } from 'react-router';
-import { NavLink } from 'react-router-dom';
 
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Menu, { MenuItem } from 'material-ui/Menu';
