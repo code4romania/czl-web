@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { MuiThemeProvider } from 'material-ui/styles';
 import { withStyles } from 'material-ui/styles';
+import CssBaseline from 'material-ui/CssBaseline';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import AppBar from '../AppBar/AppBar';
@@ -23,6 +24,7 @@ class App extends Component {
     const { classes } = this.props;
     return (
       <MuiThemeProvider theme={theme}>
+        <CssBaseline />
         <Router>
           <div>
             <AppBar auth={{ user: { name: 'Alejandro' } }} />

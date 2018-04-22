@@ -11,8 +11,6 @@ import registerServiceWorker from './registerServiceWorker';
 import { categorySelection } from './category-selection';
 import { categories } from './categories';
 
-import './index.css';
-
 const rootReducer = combineReducers({
   categorySelection,
   categories

@@ -54,8 +54,6 @@ class CategorySelectionPageBase extends Component {
   render() {
     const { categories, toggleCategory } = this.props;
 
-    console.log(categories);
-
     return (
       <div>
         <CategoryBoxesList
