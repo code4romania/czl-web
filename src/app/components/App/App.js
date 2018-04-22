@@ -23,7 +23,6 @@ class App extends Component {
     const { classes } = this.props;
     return (
       <MuiThemeProvider theme={theme}>
-        <div />
         <Router>
           <div>
             <AppBar auth={{ user: { name: 'Alejandro' } }} />

@@ -6,13 +6,13 @@ import { combineReducers, createStore } from 'redux';
 
 import { App } from './app';
 import registerServiceWorker from './registerServiceWorker';
+
+// Import module reducers
 import { categorySelection } from './category-selection';
 import { categories } from './categories';
 
 import './index.css';
 
-
-console.log(categorySelection);
 const rootReducer = combineReducers({
   categorySelection,
   categories
