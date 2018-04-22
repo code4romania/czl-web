@@ -28,7 +28,11 @@ As an extra feature, to give a sense of the wider context, CeZiceLegea will also
 
 ## Built With
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). [Storybook](https://github.com/storybooks/storybook) helps us with showcasing components.
+* [Create React App](https://github.com/facebookincubator/create-react-app) was used to bootstrap the project.
+* [Material UI](https://material-ui-next.com/) will make it look awesome.
+* [React Router](https://github.com/ReactTraining/react-router) powers the navigation.
+* [Redux](https://redux.js.org/) for state management.
+* [Storybook](https://github.com/storybooks/storybook) helps us with showcasing and developing decoupled components.
 
 ### Prerequisites
 
@@ -58,7 +62,7 @@ yarn storybook
 Run unit tests, [Jest](https://facebook.github.io/jest/)-based (not much here ATM, hackaton...):
 
 ```bash
-yarn tests
+yarn test
 ```
 
 Generate a production build:
