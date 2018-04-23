@@ -87,7 +87,7 @@ If you would like to contribute to one of our repositories, first identify the s
 * Push to the branch (git push origin feature/fooBar)
 * Create a new Pull Request
 
-List any pending features and planned improvements for the project.
+[Pending issues](https://github.com/code4romania/czl-web/issues)
 
 ## Feedback
 
@@ -98,7 +98,7 @@ List any pending features and planned improvements for the project.
 
 ## License
 
-This project is licensed under the MPL 2.0 License - see the LICENSE.md file for details
+This project is licensed under the MPL 2.0 License - see the [LICENSE](LICENSE) file for details
 
 ## About Code4Ro
 
