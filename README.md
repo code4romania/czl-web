@@ -8,7 +8,7 @@
 * making a closed and complex environment accessible to all
 * increasing accountability among legislators
 
-[See the project live](http://cezicelegea.ro/)
+[See the project live](https://czl-web.surge.sh/)
 
 With dozens of institutions involved in the process and incomplete information fragmented across a myriad of websites, it is almost impossible
 for a regular citizen to follow the long process by which a proposal becomes law.
@@ -73,9 +73,9 @@ yarn build
 
 ## Repos and projects
 
-Related projects:  
-https://github.com/code4romania/czl-scrape  
-https://github.com/code4romania/czl-api  
+Related projects:
+https://github.com/code4romania/czl-scrape
+https://github.com/code4romania/czl-api
 
 ## Contributing
 
