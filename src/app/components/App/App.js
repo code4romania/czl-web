@@ -15,7 +15,13 @@ import theme from '../../../theme';
 
 const styles = theme => ({
   content: {
-    padding: 10
+    padding: 10,
+    marginTop: 50,
+    [theme.breakpoints.up('md')]: {
+      marginTop: 100,
+      marginLeft: 100,
+      marginRight: 100
+    }
   }
 });
 

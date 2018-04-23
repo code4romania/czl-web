@@ -1,7 +1,6 @@
 const categories = (state = [], action) => {
   switch (action.type) {
     case 'SET_CATEGORIES':
-      console.log('setcateg');
       return [
         ...action.categories
       ];

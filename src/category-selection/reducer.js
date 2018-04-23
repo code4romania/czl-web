@@ -1,7 +1,6 @@
 const categorySelection = (state = [], action) => {
   switch (action.type) {
     case 'SET_SELECTED_CATEGORIES':
-      console.log('setsel');
       return [
         ...action.selectedIds
       ];
