@@ -15,12 +15,12 @@ import theme from '../../../theme';
 
 const styles = theme => ({
   content: {
-    padding: 10,
-    marginTop: 50,
+    padding: theme.spacing.unit,
+    marginTop: 4 * theme.spacing.unit,
     [theme.breakpoints.up('md')]: {
-      marginTop: 100,
-      marginLeft: 100,
-      marginRight: 100
+      marginTop: 8 * theme.spacing.unit,
+      marginLeft: 8 * theme.spacing.unit,
+      marginRight: 8 * theme.spacing.unit
     }
   }
 });
