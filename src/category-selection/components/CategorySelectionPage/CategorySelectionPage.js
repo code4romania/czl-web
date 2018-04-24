@@ -92,7 +92,7 @@ class CategorySelectionPageBase extends Component {
   }
 
   render() {
-    const { categories, toggleCategory, classes, theme } = this.props;
+    const { categories, toggleCategory, classes } = this.props;
     const { tabIndex } = this.state;
 
     return (

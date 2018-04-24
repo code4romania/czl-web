@@ -57,7 +57,7 @@ class AppBarBase extends Component {
     this.setState({ anchorEl: null });
   };
   render() {
-    const { classes, auth, location, history } = this.props;
+    const { classes, auth, location, history, onMenuClick } = this.props;
     const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
 
@@ -69,6 +69,7 @@ class AppBarBase extends Component {
               className={`${classes.menuButton} ${classes.navIconHide}`}
               color="inherit"
               aria-label="Menu"
+              onClick={onMenuClick}
             >
               <MenuIcon />
             </IconButton>

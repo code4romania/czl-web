@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import { MuiThemeProvider } from 'material-ui/styles';
 import { withStyles } from 'material-ui/styles';
 import CssBaseline from 'material-ui/CssBaseline';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Hidden from 'material-ui/Hidden';
 
 import AppBar from '../AppBar/AppBar';
+import NavDrawer from '../NavDrawer/NavDrawer';
 
 import { HomePage } from '../../../home';
 import { CategoriesPage } from '../../../categories';
@@ -26,6 +29,15 @@ const styles = theme => ({
 });
 
 class App extends Component {
+
+  state = {
+    drawerOpen: true,
+  };
+
+  handleDrawerToggle = () => {
+    this.setState({ drawerOpen: !this.state.drawerOpen });
+  };
+
   render() {
     const { classes } = this.props;
     return (
@@ -33,7 +45,11 @@ class App extends Component {
         <CssBaseline />
         <Router>
           <div>
-            <AppBar auth={{ user: { name: 'Alejandro' } }} />
+            <AppBar auth={{ user: { name: 'Alejandro' } }} onMenuClick={this.handleDrawerToggle} />
+            <Hidden mdUp>
+              <NavDrawer open={this.state.drawerOpen}
+                onClose={this.handleDrawerToggle} />
+            </Hidden>
 
             <div className={classes.content}>
               <Route exact path="/" component={HomePage} />
