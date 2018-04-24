@@ -12,10 +12,8 @@ const styles = theme => ({
 });
 
 class NavDrawer extends React.Component {
-
   render() {
     const { classes, theme, open, onClose, children } = this.props;
-
 
     return (
       <Drawer
@@ -24,10 +22,10 @@ class NavDrawer extends React.Component {
         open={open}
         onClose={onClose}
         classes={{
-          paper: classes.drawerPaper,
+          paper: classes.drawerPaper
         }}
         ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
+          keepMounted: true // Better open performance on mobile.
         }}
       >
         {children}
@@ -45,7 +43,7 @@ NavDrawer.propTypes = {
 
 NavDrawer.defaultProps = {
   open: false,
-  onClose: () => { }
+  onClose: () => {}
 };
 
 export default withStyles(styles, { withTheme: true })(NavDrawer);
