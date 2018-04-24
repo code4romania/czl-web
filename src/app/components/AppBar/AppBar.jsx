@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
+
 import { withStyles } from 'material-ui/styles';
 import AppBarMUI from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
@@ -7,11 +9,11 @@ import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-
-import { withRouter } from 'react-router';
-
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Menu, { MenuItem } from 'material-ui/Menu';
+import Hidden from 'material-ui/Hidden';
+
+import NavDrawer from '../NavDrawer/NavDrawer';
 
 const styles = theme => ({
   root: {
@@ -46,7 +48,12 @@ const styles = theme => ({
 
 class AppBarBase extends Component {
   state = {
+    drawerOpen: false,
     anchorEl: null
+  };
+
+  handleDrawerToggle = () => {
+    this.setState({ drawerOpen: !this.state.drawerOpen });
   };
 
   handleMenu = event => {
@@ -57,7 +64,7 @@ class AppBarBase extends Component {
     this.setState({ anchorEl: null });
   };
   render() {
-    const { classes, auth, location, history, onMenuClick } = this.props;
+    const { classes, auth, location, history } = this.props;
     const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
 
@@ -69,7 +76,7 @@ class AppBarBase extends Component {
               className={`${classes.menuButton} ${classes.navIconHide}`}
               color="inherit"
               aria-label="Menu"
-              onClick={onMenuClick}
+              onClick={this.handleDrawerToggle}
             >
               <MenuIcon />
             </IconButton>
@@ -84,10 +91,10 @@ class AppBarBase extends Component {
             {auth && (
               <div className={classes.topToolbar}>
                 <div className={classes.topMenu}>
-                  <Button color={location.pathname === '/' ? 'secondary': 'inherit'}  onClick={() => history.push('/')}>Home</Button>
-                  <Button color={location.pathname === '/categories' ? 'secondary': 'inherit'} onClick={() => history.push('/categories')}>Categorii</Button>
-                  <Button color={location.pathname === '/proposals' ? 'secondary': 'inherit'} onClick={() => history.push('/proposals')}>Propuneri legislative</Button>
-                  <Button color={location.pathname === '/institutions' ? 'secondary': 'inherit'} onClick={() => history.push('/institutions')}>Institutii</Button>
+                  <Button color={location.pathname === '/' ? 'secondary' : 'inherit'} onClick={() => history.push('/')}>Home</Button>
+                  <Button color={location.pathname === '/categories' ? 'secondary' : 'inherit'} onClick={() => history.push('/categories')}>Categorii</Button>
+                  <Button color={location.pathname === '/proposals' ? 'secondary' : 'inherit'} onClick={() => history.push('/proposals')}>Propuneri legislative</Button>
+                  <Button color={location.pathname === '/institutions' ? 'secondary' : 'inherit'} onClick={() => history.push('/institutions')}>Institutii</Button>
                 </div>
                 <Typography
                   variant="body1"
@@ -125,6 +132,11 @@ class AppBarBase extends Component {
             )}
           </Toolbar>
         </AppBarMUI>
+
+        <Hidden mdUp>
+          <NavDrawer open={this.state.drawerOpen}
+            onClose={this.handleDrawerToggle} />
+        </Hidden>
       </div>
     );
   }
@@ -144,7 +156,7 @@ AppBarBase.defaultProps = {
     pathname: '/'
   },
   history: {
-    push: () => {}
+    push: () => { }
   }
 }
 
