@@ -49,7 +49,7 @@ class ProposalListing extends Component {
 	render() {
 		const { date, description, badges, isFollowing, classes, theme } = this.props;
 		const [ year, month, day ] = date.split('-');
-		console.log(theme.typography.body2);
+		
 		return (
 			<Paper className={classes.listing}>
 				<Typography className={classes.date}>
