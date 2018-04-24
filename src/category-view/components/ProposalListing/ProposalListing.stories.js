@@ -9,7 +9,15 @@ import ProposalListing from './ProposalListing';
 const props = {
 	date: '2018-04-10',
 	description: 'Propunere de lege pentru ratificarea Tratatului intre Romania si Republica Federativa a Braziliei',
-	badges: ['Senat', 'Pe ordinea de zi'],
+	badges: [
+	{ 
+		label: 'Senat',
+		color: 'lightpink' 
+	},
+	{
+		label: 'Pe ordinea de zi',
+		color: 'lightblue'
+	}],
 	isFollowing: false 
 };
 
