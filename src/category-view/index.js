@@ -1,1 +1,3 @@
-export { default as ProposalListing } from './components/ProposalListing/ProposalListing';
+export {
+  default as ProposalListing
+} from './components/ProposalListing/ProposalListing';
