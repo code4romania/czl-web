@@ -12,6 +12,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Menu, { MenuItem } from 'material-ui/Menu';
 import Hidden from 'material-ui/Hidden';
+import List, { ListItem, ListItemText } from 'material-ui/List';
 
 import NavDrawer from '../NavDrawer/NavDrawer';
 
@@ -43,8 +44,22 @@ const styles = theme => ({
   topToolbar: {
     display: 'flex',
     alignItems: 'center'
+  },
+  selectedItem: {
+    color: theme.palette.primary.main
   }
 });
+
+const NavItem = withRouter(({ route, render, location, history }) => render({ selected: location.pathname === route, navigate: () => history.push(route) }));
+
+const DrawerMenuItem = withStyles(styles, { withTheme: true })(({ onClick, selected, label, classes}) => (
+  <ListItem button onClick={onClick}>
+    <ListItemText classes={selected ? {
+      primary: classes.selectedItem
+    } : {}}
+      primary={label} />
+  </ListItem>
+))
 
 class AppBarBase extends Component {
   state = {
@@ -135,7 +150,22 @@ class AppBarBase extends Component {
 
         <Hidden mdUp>
           <NavDrawer open={this.state.drawerOpen}
-            onClose={this.handleDrawerToggle} />
+            onClose={this.handleDrawerToggle}>
+            <List>
+              <NavItem route='/' render={({ selected, navigate }) => (
+                <DrawerMenuItem selected={selected} onClick={navigate} label='Home'/>
+              )} />
+              <NavItem route='/categories' render={({ selected, navigate }) => (
+                <DrawerMenuItem selected={selected} onClick={navigate} label='Categorii'/>
+              )} />
+              <NavItem route='/proposals' render={({ selected, navigate }) => (
+                <DrawerMenuItem selected={selected} onClick={navigate} label='Propuneri legislative'/>
+              )} />
+              <NavItem route='/institutions' render={({ selected, navigate }) => (
+                <DrawerMenuItem selected={selected} onClick={navigate} label='Institutii'/>
+              )} />
+            </List>
+          </NavDrawer>
         </Hidden>
       </div>
     );

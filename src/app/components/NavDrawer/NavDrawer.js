@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Drawer from 'material-ui/Drawer';
-import List, { ListItem, ListItemText } from 'material-ui/List';
 
 const drawerWidth = 240;
 
@@ -15,7 +14,7 @@ const styles = theme => ({
 class NavDrawer extends React.Component {
 
   render() {
-    const { classes, theme, open, onClose } = this.props;
+    const { classes, theme, open, onClose, children } = this.props;
 
 
     return (
@@ -31,20 +30,7 @@ class NavDrawer extends React.Component {
           keepMounted: true, // Better open performance on mobile.
         }}
       >
-        <List>
-          <ListItem button>
-            <ListItemText primary="Inbox" />
-          </ListItem>
-          <ListItem button>
-            <ListItemText primary="Starred" />
-          </ListItem>
-          <ListItem button>
-            <ListItemText primary="Send mail" />
-          </ListItem>
-          <ListItem button>
-            <ListItemText primary="Drafts" />
-          </ListItem>
-        </List>
+        {children}
       </Drawer>
     );
   }
