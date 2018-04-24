@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Drawer from 'material-ui/Drawer';
 
-const drawerWidth = 240;
+const DRAWER_WIDTH = 240;
 
 const styles = theme => ({
   drawerPaper: {
-    width: drawerWidth
+    width: DRAWER_WIDTH
   }
 });
 
