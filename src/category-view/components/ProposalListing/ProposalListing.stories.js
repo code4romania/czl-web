@@ -7,6 +7,7 @@ import { linkTo } from '@storybook/addon-links';
 import ProposalListing from './ProposalListing';
 
 const props = {
+	id: 1234,
 	date: '2018-04-10',
 	description: 'Propunere de lege pentru ratificarea Tratatului intre Romania si Republica Federativa a Braziliei',
 	badges: [
@@ -18,7 +19,9 @@ const props = {
 		label: 'Pe ordinea de zi',
 		color: 'lightblue'
 	}],
-	isFollowing: false 
+	isFollowing: false,
+	follow: action('follow proposal'),
+	show: action('show proposal')
 };
 
 storiesOf('Category View', module).add('ProposalListing', () => <ProposalListing {...props} />);

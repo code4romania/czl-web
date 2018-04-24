@@ -47,7 +47,7 @@ const styles = theme => ({
 
 class ProposalListing extends Component {
 	render() {
-		const { date, description, badges, isFollowing, classes, theme } = this.props;
+		const { id, date, description, badges, isFollowing, classes, theme, follow, show } = this.props;
 		const [ year, month, day ] = date.split('-');
 		
 		return (
@@ -68,15 +68,28 @@ class ProposalListing extends Component {
 							);
 						})}
 					</div>
-					<Typography variant="body2" paragraph className={classes.description}>
+					<Typography 
+						variant="body2" 
+						paragraph 
+						className={classes.description}
+					>
 						{description}
 					</Typography>
 					<div className={classes.actions}>
-						<Button variant="raised" color="primary">
+						<Button 
+							variant="raised" 
+							color="primary"
+							onClick={() => show(id)}
+						>
 			        Timeline
 			      </Button>
 						{isFollowing ? null :
-				      <Button variant="raised" color="secondary" className={classes.button}>
+				      <Button 
+				      	variant="raised" 
+				      	color="secondary" 
+				      	className={classes.button}
+				      	onClick={() => follow(id)}
+				      >
 				        Urmareste
 				      </Button>
 				    }								      
@@ -88,10 +101,13 @@ class ProposalListing extends Component {
 }
 
 ProposalListing.propTypes = {
+	id: PropTypes.number.isRequired,
 	date: PropTypes.string.isRequired,
 	description: PropTypes.string.isRequired,
 	badges: PropTypes.arrayOf(PropTypes.object).isRequired,
-	isFollowing: PropTypes.bool.isRequired
+	isFollowing: PropTypes.bool.isRequired,
+	follow: PropTypes.func.isRequired,
+	show: PropTypes.func.isRequired
 };
 
 export default withStyles(styles, { withTheme: true })(ProposalListing);
