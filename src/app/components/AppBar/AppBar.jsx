@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
+
 import { withStyles } from 'material-ui/styles';
 import AppBarMUI from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
@@ -7,11 +9,12 @@ import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-
-import { withRouter } from 'react-router';
-
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Menu, { MenuItem } from 'material-ui/Menu';
+import Hidden from 'material-ui/Hidden';
+import List, { ListItem, ListItemText } from 'material-ui/List';
+
+import NavDrawer from '../NavDrawer/NavDrawer';
 
 const styles = theme => ({
   root: {
@@ -41,12 +44,43 @@ const styles = theme => ({
   topToolbar: {
     display: 'flex',
     alignItems: 'center'
+  },
+  selectedItem: {
+    color: theme.palette.primary.main
   }
 });
 
-class AppBarBase extends Component {
+const NavItem = withRouter(({ route, render, location, history }) => render({ selected: location.pathname === route, navigate: () => history.push(route) }));
+
+const DrawerItem = withStyles(styles, { withTheme: true })(({ onClick, selected, label, classes }) => (
+  <ListItem button onClick={onClick}>
+    <ListItemText classes={selected ? {
+      primary: classes.selectedItem
+    } : {}}
+      primary={label} />
+  </ListItem>
+));
+
+const DrawerNavItem = ({ route, label }) => (
+  <NavItem route={route} render={({ selected, navigate }) => (
+    <DrawerItem selected={selected} onClick={navigate} label={label} />
+  )} />
+);
+
+const TopMenuNavItem = ({ route, label }) => (
+  <NavItem route={route} render={({ selected, navigate }) => (
+    <Button color={selected ? 'secondary' : 'inherit'} onClick={navigate}>{label}</Button>
+  )} />
+)
+
+class AppBar extends Component {
   state = {
+    drawerOpen: false,
     anchorEl: null
+  };
+
+  handleDrawerToggle = () => {
+    this.setState({ drawerOpen: !this.state.drawerOpen });
   };
 
   handleMenu = event => {
@@ -57,7 +91,7 @@ class AppBarBase extends Component {
     this.setState({ anchorEl: null });
   };
   render() {
-    const { classes, auth, location, history } = this.props;
+    const { classes, auth } = this.props;
     const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
 
@@ -69,6 +103,7 @@ class AppBarBase extends Component {
               className={`${classes.menuButton} ${classes.navIconHide}`}
               color="inherit"
               aria-label="Menu"
+              onClick={this.handleDrawerToggle}
             >
               <MenuIcon />
             </IconButton>
@@ -83,10 +118,10 @@ class AppBarBase extends Component {
             {auth && (
               <div className={classes.topToolbar}>
                 <div className={classes.topMenu}>
-                  <Button color={location.pathname === '/' ? 'secondary': 'inherit'}  onClick={() => history.push('/')}>Home</Button>
-                  <Button color={location.pathname === '/categories' ? 'secondary': 'inherit'} onClick={() => history.push('/categories')}>Categorii</Button>
-                  <Button color={location.pathname === '/proposals' ? 'secondary': 'inherit'} onClick={() => history.push('/proposals')}>Propuneri legislative</Button>
-                  <Button color={location.pathname === '/institutions' ? 'secondary': 'inherit'} onClick={() => history.push('/institutions')}>Institutii</Button>
+                  <TopMenuNavItem route='/' label='Home' />
+                  <TopMenuNavItem route='/categories' label='Categorii' />
+                  <TopMenuNavItem route='/proposals' label='Propuneri legislative' />
+                  <TopMenuNavItem route='/institutions' label='Institutii' />
                 </div>
                 <Typography
                   variant="body1"
@@ -124,34 +159,28 @@ class AppBarBase extends Component {
             )}
           </Toolbar>
         </AppBarMUI>
+
+        <Hidden mdUp>
+          <NavDrawer open={this.state.drawerOpen}
+            onClose={this.handleDrawerToggle}>
+            <List>
+              <DrawerNavItem route='/' label='Home' />
+              <DrawerNavItem route='/categories' label='Categorii' />
+              <DrawerNavItem route='/proposals' label='Propuneri legislative' />
+              <DrawerNavItem route='/institutions' label='Institutii' />
+            </List>
+          </NavDrawer>
+        </Hidden>
       </div>
     );
   }
 }
 
-AppBarBase.propTypes = {
+AppBar.propTypes = {
   classes: PropTypes.object.isRequired,
-  auth: PropTypes.object,
-  match: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired
+  auth: PropTypes.object
 };
 
-
-AppBarBase.defaultProps = {
-  location: {
-    pathname: '/'
-  },
-  history: {
-    push: () => {}
-  }
-}
-
-
-const AppBar = withStyles(styles, { withTheme: true })(AppBarBase);
-
-export { AppBar };
-
-export default withRouter(AppBar);
+export default withStyles(styles, { withTheme: true })(AppBar);
 
 
