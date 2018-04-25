@@ -164,10 +164,17 @@ class AppBar extends Component {
           <NavDrawer open={this.state.drawerOpen}
             onClose={this.handleDrawerToggle}>
             <List>
-              <DrawerNavItem route='/' label='Home' />
-              <DrawerNavItem route='/categories' label='Categorii' />
-              <DrawerNavItem route='/proposals' label='Propuneri legislative' />
-              <DrawerNavItem route='/institutions' label='Institutii' />
+              <div
+                tabIndex={0}
+                role="button"
+                onClick={this.handleDrawerToggle}
+                onKeyDown={this.handleDrawerToggle}
+              >
+                <DrawerNavItem route='/' label='Home' />
+                <DrawerNavItem route='/categories' label='Categorii' />
+                <DrawerNavItem route='/proposals' label='Propuneri legislative' />
+                <DrawerNavItem route='/institutions' label='Institutii' />
+              </div>
             </List>
           </NavDrawer>
         </Hidden>
