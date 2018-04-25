@@ -1,3 +1,3 @@
 export {
-  default as ProposalListing
-} from './components/ProposalListing/ProposalListing';
+  default as ProposalListItem
+} from './components/ProposalListItem/ProposalListItem';

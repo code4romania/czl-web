@@ -10,7 +10,8 @@ import { withStyles } from 'material-ui/styles';
 const styles = theme => ({
   listing: {
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    width: '100%'
   },
   listingContent: {
     padding: theme.spacing.unit,
@@ -35,6 +36,7 @@ const styles = theme => ({
   },
   badge: {
     marginRight: theme.spacing.unit,
+    marginBottom: theme.spacing.unit,
     height: '25px'
   },
   description: {
@@ -45,7 +47,7 @@ const styles = theme => ({
   }
 });
 
-class ProposalListing extends Component {
+class ProposalListItem extends Component {
   render() {
     const {
       id,
@@ -55,8 +57,8 @@ class ProposalListing extends Component {
       isFollowing,
       classes,
       theme,
-      follow,
-      show
+      onFollow,
+      onView
     } = this.props;
     const [year, month, day] = date.split('-');
 
@@ -84,7 +86,7 @@ class ProposalListing extends Component {
             {description}
           </Typography>
           <div className={classes.actions}>
-            <Button variant="raised" color="primary" onClick={() => show(id)}>
+            <Button variant="raised" color="primary" onClick={() => onView(id)}>
               Timeline
             </Button>
             {isFollowing ? null : (
@@ -92,7 +94,7 @@ class ProposalListing extends Component {
                 variant="raised"
                 color="secondary"
                 className={classes.button}
-                onClick={() => follow(id)}
+                onClick={() => onFollow(id)}
               >
                 Urmareste
               </Button>
@@ -104,14 +106,14 @@ class ProposalListing extends Component {
   }
 }
 
-ProposalListing.propTypes = {
+ProposalListItem.propTypes = {
   id: PropTypes.number.isRequired,
   date: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   badges: PropTypes.arrayOf(PropTypes.object).isRequired,
   isFollowing: PropTypes.bool.isRequired,
-  follow: PropTypes.func.isRequired,
-  show: PropTypes.func.isRequired
+  onFollow: PropTypes.func.isRequired,
+  onView: PropTypes.func.isRequired
 };
 
-export default withStyles(styles, { withTheme: true })(ProposalListing);
+export default withStyles(styles, { withTheme: true })(ProposalListItem);

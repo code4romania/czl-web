@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-import ProposalListing from './ProposalListing';
+import ProposalListItem from './ProposalListItem';
 
 const props = {
   id: 1234,
@@ -22,10 +22,10 @@ const props = {
     }
   ],
   isFollowing: false,
-  follow: action('follow proposal'),
-  show: action('show proposal')
+  onFollow: action('follow proposal'),
+  onView: action('show proposal')
 };
 
-storiesOf('Category View', module).add('ProposalListing', () => (
-  <ProposalListing {...props} />
+storiesOf('Category View', module).add('ProposalListItem', () => (
+  <ProposalListItem {...props} />
 ));
