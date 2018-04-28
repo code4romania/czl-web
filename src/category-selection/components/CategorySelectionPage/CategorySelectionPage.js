@@ -12,6 +12,7 @@ import CategoryBoxesList from '../CategoryBoxesList/CategoryBoxesList';
 
 import { setCategories } from '../../../categories';
 import { setSelectedCategories, toggleCategory } from '../../actions';
+import Hidden from 'material-ui/Hidden/Hidden';
 
 const selectedCategoryIds = [0, 3, 5];
 
@@ -72,7 +73,10 @@ const styles = theme => ({
   },
   input: {
     margin: theme.spacing.unit,
-    width: 300
+    width: 300,
+    [theme.breakpoints.down('sm')]: {
+      marginBottom: 2 * theme.spacing.unit
+    }
   },
   descriptionSecondary: {
     [theme.breakpoints.down('sm')]: {
@@ -120,6 +124,7 @@ class CategorySelectionPageBase extends Component {
             selecteaz-o din tab-ul de institutii.
           </span>
         </Typography>
+        <Hidden mdUp>{this.renderSearchBar()}</Hidden>
         <Paper elevation={0} className={classes.tabBar}>
           <Grid container alignItems="flex-end" justify="space-between">
             <Grid item>
@@ -133,21 +138,9 @@ class CategorySelectionPageBase extends Component {
                 <Tab label="Institutii" />
               </Tabs>
             </Grid>
-            <Grid item>
-              <Input
-                placeholder="Cauta"
-                className={classes.input}
-                type="search"
-                inputProps={{
-                  'aria-label': 'Search'
-                }}
-                startAdornment={
-                  <InputAdornment position="start">
-                    <Search />
-                  </InputAdornment>
-                }
-              />
-            </Grid>
+            <Hidden smDown>
+              <Grid item>{this.renderSearchBar()}</Grid>
+            </Hidden>
           </Grid>
         </Paper>
         {tabIndex === 0 ? (
@@ -157,6 +150,25 @@ class CategorySelectionPageBase extends Component {
           />
         ) : null}
       </div>
+    );
+  }
+
+  renderSearchBar() {
+    const { classes } = this.props;
+    return (
+      <Input
+        placeholder="Cauta"
+        className={classes.input}
+        type="search"
+        inputProps={{
+          'aria-label': 'Search'
+        }}
+        startAdornment={
+          <InputAdornment position="start">
+            <Search />
+          </InputAdornment>
+        }
+      />
     );
   }
 }
