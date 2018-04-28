@@ -73,6 +73,11 @@ const styles = theme => ({
   input: {
     margin: theme.spacing.unit,
     width: 300
+  },
+  descriptionSecondary: {
+    [theme.breakpoints.down('sm')]: {
+      display: 'none'
+    }
   }
 });
 
@@ -103,13 +108,17 @@ class CategorySelectionPageBase extends Component {
           color="inherit"
           className={classes.info}
         >
-          Despre ce categorie de legi ai dori sa primesti notificari?<br />
+          <span>
+            Despre ce categorie de legi ai dori sa primesti notificari?
+          </span>
           <br />
-          Selecteaza, din tabul de categorii, domeniile de mai jos si alegele pe
-          cele mai importante pentru tine. Vei fi alertat de fiecare data cand
-          un proiect de lege care te-ar putea interesa intra in dezbatere.<br />Daca
-          vrei sa urmaresti o institutie anume, selecteaz-o din tab-ul de
-          institutii.
+          <span className={classes.descriptionSecondary}>
+            Selecteaza, din tabul de categorii, domeniile de mai jos si alegele
+            pe cele mai importante pentru tine. Vei fi alertat de fiecare data
+            cand un proiect de lege care te-ar putea interesa intra in
+            dezbatere.<br />Daca vrei sa urmaresti o institutie anume,
+            selecteaz-o din tab-ul de institutii.
+          </span>
         </Typography>
         <Paper elevation={0} className={classes.tabBar}>
           <Grid container alignItems="flex-end" justify="space-between">
