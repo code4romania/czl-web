@@ -73,7 +73,6 @@ const styles = theme => ({
   },
   input: {
     margin: theme.spacing.unit,
-    width: 300,
     [theme.breakpoints.down('sm')]: {
       marginBottom: 2 * theme.spacing.unit
     }
@@ -127,19 +126,22 @@ class CategorySelectionPageBase extends Component {
         <Hidden mdUp>{this.renderSearchBar()}</Hidden>
         <Paper elevation={0} className={classes.tabBar}>
           <Grid container alignItems="flex-end" justify="space-between">
-            <Grid item>
+            <Grid item xs={12} sm={4}>
               <Tabs
                 value={tabIndex}
                 indicatorColor="primary"
                 textColor="primary"
                 onChange={this.handleChange}
+                fullWidth
               >
                 <Tab label="Categorii de legi" />
                 <Tab label="Institutii" />
               </Tabs>
             </Grid>
             <Hidden smDown>
-              <Grid item>{this.renderSearchBar()}</Grid>
+              <Grid item xs={12} sm={4}>
+                {this.renderSearchBar()}
+              </Grid>
             </Hidden>
           </Grid>
         </Paper>
@@ -168,6 +170,7 @@ class CategorySelectionPageBase extends Component {
             <Search />
           </InputAdornment>
         }
+        fullWidth
       />
     );
   }
