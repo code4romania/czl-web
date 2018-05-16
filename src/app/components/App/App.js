@@ -11,6 +11,7 @@ import { HomePage } from '../../../home';
 import { CategoriesPage } from '../../../categories';
 import { ProposalsPage } from '../../../proposals';
 import { InstitutionsPage } from '../../../institutions';
+import Footer from '../footer/components/Footer';
 
 import theme from '../../../theme';
 
@@ -44,6 +45,7 @@ class App extends Component {
             </div>
           </div>
         </Router>
+        <Footer />
       </MuiThemeProvider>
     );
   }

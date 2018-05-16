@@ -10,21 +10,33 @@ import {
 } from "mdi-material-ui";
 
 const styles = theme => ({
-  background: {
+  footer: {
     backgroundColor: "#fcfcfc",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    width: '100%',
+    position: "absolute",
+    bottom: 0,
+    padding: "3em 0"
   },
-  svgs: {
+  socialIcons: {
     height: "1.25em",
     width: "1.25em",
     margin: "0 1em 0 1em",
     color: theme.palette.secondary.dark
   },
   copywrite: {
-    fontFamily: "Roboto",
+    fontFamily: "Source Code Pro",
+    margin: "2em 0 1.25em 0"
+  },
+  legal: {
+    fontFamily: "Raleway",
+    marginBottom: "2em"
+  },
+  terms: {
+    marginRight: "2em",
   },
   logo: {
     width: "10em",
@@ -35,24 +47,27 @@ class Footer extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div className={classes.background}>
-        <div className="socialIcons">
-          <SvgIcon className={classes.svgs}>
+      <div className={classes.footer}>
+        <div>
+          <SvgIcon className={classes.socialIcons}>
             <Facebook />
           </SvgIcon>
-          <SvgIcon className={classes.svgs}>
+          <SvgIcon className={classes.socialIcons}>
             <Twitter />
           </SvgIcon>
-          <SvgIcon className={classes.svgs}>
+          <SvgIcon className={classes.socialIcons}>
             <GithubCircle />
           </SvgIcon>
-          <SvgIcon className={classes.svgs}>
+          <SvgIcon className={classes.socialIcons}>
             <Linkedin />
           </SvgIcon>
         </div>
         <div className={classes.copywrite}>
           © 2018 Code for Romania. Organizație neguvernamentală independentă,
           neafiliată politic și apolitică.
+        </div>
+        <div className={classes.legal}>
+          <span className={classes.terms}>Termeni si conditii</span><span>Politica de confidentialitate</span>
         </div>
         <div>
           <img className={classes.logo} src={require(`../../../../images/footer-logo.png`)} alt="icon" />
