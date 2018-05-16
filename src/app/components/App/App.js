@@ -16,6 +16,14 @@ import Footer from '../footer/components/Footer';
 import theme from '../../../theme';
 
 const styles = theme => ({
+  flexContainer: {
+    display: 'flex',
+    minHeight: '100vh',
+    flexDirection: 'column'
+  },
+  contentContainer: {
+    flex: 1
+  },
   content: {
     padding: theme.spacing.unit,
     marginTop: 4 * theme.spacing.unit,
@@ -33,19 +41,20 @@ class App extends Component {
     return (
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
-        <Router>
-          <div>
-            <AppBar auth={{ user: { name: 'Alejandro' } }} />
-
-            <div className={classes.content}>
-              <Route exact path="/" component={HomePage} />
-              <Route path="/categories" component={CategoriesPage} />
-              <Route path="/proposals" component={ProposalsPage} />
-              <Route path="/institutions" component={InstitutionsPage} />
+        <div className={classes.flexContainer}>
+          <Router>
+            <div className={classes.contentContainer}>
+              <AppBar auth={{ user: { name: 'Alejandro' } }} />
+              <div className={classes.content}>
+                <Route exact path="/" component={HomePage} />
+                <Route path="/categories" component={CategoriesPage} />
+                <Route path="/proposals" component={ProposalsPage} />
+                <Route path="/institutions" component={InstitutionsPage} />
+              </div>
             </div>
-          </div>
-        </Router>
-        <Footer />
+          </Router>
+          <Footer />
+        </div>
       </MuiThemeProvider>
     );
   }
