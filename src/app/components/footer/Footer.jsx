@@ -4,6 +4,7 @@ import { withStyles } from "material-ui/styles";
 import grey from "@material-ui/core/colors/grey";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import { Facebook, GithubCircle, Linkedin, Twitter } from "mdi-material-ui";
+import { Link } from 'react-router-dom'
 
 const styles = theme => ({
   footer: {
@@ -20,7 +21,7 @@ const styles = theme => ({
     margin: "0 1em 0 1em"
   },
   svg: {
-    color: theme.palette.primary.dark,
+    color: theme.palette.primary.main,
     "&:hover": {
       color: theme.palette.primary.dark
     }
@@ -29,7 +30,7 @@ const styles = theme => ({
     fontFamily: "Source Code Pro",
     margin: "50px 0 12px 0",
     color: grey[700],
-    fontSize: 12
+    fontSize: 12,
   },
   legal: {
     fontFamily: "Raleway",
@@ -80,13 +81,13 @@ class Footer extends Component {
           neafiliată politic și apolitică.
         </div>
         <div className={classes.legal}>
-          <span className={classes.terms}>Termeni si conditii</span>
+        <Link to="/terms"><span className={classes.terms}>Termeni si conditii</span></Link>
           <span>Politica de confidentialitate</span>
         </div>
         <div>
           <img
             className={classes.logo}
-            src={require(`../../../../images/footer-logo.png`)}
+            src={require(`../../../images/footer-logo.png`)}
             alt="icon"
           />
         </div>
