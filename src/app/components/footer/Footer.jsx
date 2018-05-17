@@ -35,8 +35,10 @@ const styles = theme => ({
   legal: {
     fontFamily: "Raleway",
     marginBottom: 30,
-    color: grey[700],
     fontSize: 14
+  },
+  links: {
+    color: grey[700],
   },
   terms: {
     marginRight: "2em"
@@ -81,8 +83,8 @@ class Footer extends Component {
           neafiliată politic și apolitică.
         </div>
         <div className={classes.legal}>
-        <Link to="/terms"><span className={classes.terms}>Termeni si conditii</span></Link>
-          <span>Politica de confidentialitate</span>
+        <Link to="/terms" className={classes.links}><span className={classes.terms}>Termeni si conditii</span></Link>
+        <Link to="/privacy" className={classes.links}><span>Politica de confidentialitate</span></Link>
         </div>
         <div>
           <img
