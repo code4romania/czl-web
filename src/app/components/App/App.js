@@ -13,6 +13,7 @@ import { ProposalsPage } from '../../../proposals';
 import { InstitutionsPage } from '../../../institutions';
 import Terms from '../footer/Terms';
 import PrivacyPolicy from '../footer/PrivacyPolicy';
+import Information from '../footer/Information';
 
 import Footer from '../footer/Footer';
 
@@ -56,6 +57,7 @@ class App extends Component {
                 <Route path="/institutions" component={InstitutionsPage} />
                 <Route path="/terms" component={Terms} />
                 <Route path="/privacy" component={PrivacyPolicy} />
+                <Route path="/information" component={Information} />
               </div>
             </div>
             <Footer />

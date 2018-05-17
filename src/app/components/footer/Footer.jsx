@@ -6,6 +6,7 @@ import SvgIcon from "@material-ui/core/SvgIcon";
 import { Facebook, GithubCircle, Linkedin, Twitter } from "mdi-material-ui";
 import { Link } from 'react-router-dom'
 
+
 const styles = theme => ({
   footer: {
     backgroundColor: "#fff",
@@ -14,7 +15,8 @@ const styles = theme => ({
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
-    padding: "50px 0"
+    padding: "50px 0",
+    marginTop: 32,
   },
   socialIcon: {
     height: 32,

@@ -2,25 +2,29 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "material-ui/styles";
 import grey from "@material-ui/core/colors/grey";
+import 'typeface-roboto'
 
 const styles = theme => ({
+  privacyContent: {
+    fontFamily: "Roboto",
+  },
   textMuted: {
-    color: grey[500],
+    color: grey[500]
   },
   link: {
-      textDecoration: "none",
-      color: theme.palette.primary.main,
-      "&:hover": {
-        color: theme.palette.primary.dark
-      }
-  },
+    textDecoration: "none",
+    color: theme.palette.primary.main,
+    "&:hover": {
+      color: theme.palette.primary.dark
+    }
+  }
 });
 
 class PrivacyPolicy extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div>
+      <div className={classes.privacyContent}>
         <p>
           Acest website foloseste cookie-uri pentru a furniza vizitatorilor o
           experienta mult mai buna de navigare si servicii adaptate nevoilor si
@@ -111,7 +115,9 @@ class PrivacyPolicy extends Component {
           <li>Cookie-uri de inregistrare</li>
         </ul>
 
-        <p className={classes.textMuted}>Unele cookie-uri pot proveni de la terti.</p>
+        <p className={classes.textMuted}>
+          Unele cookie-uri pot proveni de la terti.
+        </p>
 
         <h5>Cookie-uri folosite pentru finalizarea unei donatii</h5>
         <p>
@@ -297,7 +303,10 @@ class PrivacyPolicy extends Component {
           Pentru setarile cookie-urilor generate de terti, si pentru mai multe
           informatii privind confidentialitatea legata de publicitatea online,
           IAB Romania pune la dispozitie urmatorul site:{" "}
-          <a className={classes.link} href="http://www.youronlinechoices.com/ro/">
+          <a
+            className={classes.link}
+            href="http://www.youronlinechoices.com/ro/"
+          >
             http://www.youronlinechoices.com/ro/
           </a>
         </p>

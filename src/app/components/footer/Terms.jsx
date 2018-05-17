@@ -1,9 +1,28 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "material-ui/styles";
+import "typeface-roboto";
+import { Link } from 'react-router-dom'
+
+
+const styles = theme => ({
+  termsContent: {
+    fontFamily: "Roboto"
+  },
+  link: {
+    textDecoration: "none",
+    color: theme.palette.primary.main,
+    "&:hover": {
+      color: theme.palette.primary.dark
+    }
+  }
+});
 
 class Terms extends Component {
   render() {
+    const { classes } = this.props;
     return (
-      <div>
+      <div className={classes.termsContent}>
         <h3>Termeni si conditii de utilizare</h3>
         <p>
           Termenii si Conditiile generale de utilizare stabilesc termenii si
@@ -35,7 +54,7 @@ class Terms extends Component {
           la 2% din impozitul anual pe venit, precum si incurajarea cetatenilor
           sa contribuie la colectarea acestora.
         </p>
-        <ul className="list">
+        <ul>
           <li>
             Site-ul permite inregistrarea unui ONG pentru a crea un profil
             online prin care acesta se poate prezenta.
@@ -48,9 +67,7 @@ class Terms extends Component {
             utilizatorilor platformei care doresc sa directioneze 2% din
             impozitul pe venit, sunt utilizate de catre Code for Romania, te
             rugam sa accesezi Nota de informare de{" "}
-            <a href="/nota-de-informare" target="_blank">
-              aici
-            </a>.
+            <Link to="/information" target="_blank" className={classes.link}>aici.</Link>
           </li>
           <li>
             Datele din acest formular sunt folosite pentru a completa documentul
@@ -64,6 +81,7 @@ class Terms extends Component {
             <a
               href="https://static.anaf.ro/static/10/Anaf/formulare/D230_OPANAF_3695_2016.pdf"
               target="_blank"
+              className={classes.link}
             >
               exemplu necompletat
             </a>).
@@ -78,6 +96,7 @@ class Terms extends Component {
           <a
             href="https://static.anaf.ro/static/10/Anaf/formulare/D230_OPANAF_3695_2016.pdf"
             target="_blank"
+            className={classes.link}
           >
             exemplu necompletat
           </a>).
@@ -90,7 +109,7 @@ class Terms extends Component {
           poate fi reprodus partial, integral sau modificat fara acordul expres
           exprimat de catre Code for Romania, titularul acestui drept.
         </p>
-        <ul className="list">
+        <ul>
           <li>Toate drepturile sunt rezervate.</li>
           <li>
             Este strict interzisa folosirea acestui Site in scopul distrugerii
@@ -121,7 +140,9 @@ class Terms extends Component {
         <p>
           Daca aveti intrebari cu privire la informatiile cuprinse in aceasta
           pagina va rugam sa ne scrieti la adresa{" "}
-          <a href="mailto:redirectioneaza@code4.ro">redirectioneaza@code4.ro</a>.
+          <a href="mailto:redirectioneaza@code4.ro" className={classes.link}>
+            redirectioneaza@code4.ro
+          </a>.
         </p>
 
         <h4>Despre Code for Romania</h4>
@@ -132,7 +153,11 @@ class Terms extends Component {
           creeze instrumente digitale care ajuta in solutionarea problemelor
           sociale. Code for Romania este infiintata si functioneaza in
           conformitate cu legea romana, actul constitutiv si statutul sau si{" "}
-          <a href="https://code4.ro/codul-de-conduita/" target="_blank">
+          <a
+            href="https://code4.ro/codul-de-conduita/"
+            target="_blank"
+            className={classes.link}
+          >
             codul de conduita
           </a>.
         </p>
@@ -141,4 +166,8 @@ class Terms extends Component {
   }
 }
 
-export default Terms;
+Terms.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(Terms);
