@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const styles = theme => ({
   root: {
-    backgroundColor: "#fff",
+    backgroundColor: grey[100],
     padding: "50px 0",
     marginTop: 60,
     overflowX: "hidden"
