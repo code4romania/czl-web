@@ -16,7 +16,7 @@ const styles = theme => ({
     alignItems: "center",
     width: "100%",
     padding: "50px 0",
-    marginTop: 100,
+    marginTop: 32,
   },
   socialIcon: {
     height: 32,
