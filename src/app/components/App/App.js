@@ -11,10 +11,22 @@ import { HomePage } from '../../../home';
 import { CategoriesPage } from '../../../categories';
 import { ProposalsPage } from '../../../proposals';
 import { InstitutionsPage } from '../../../institutions';
+import Terms from '../footer/legal/Terms';
+import PrivacyPolicy from '../footer/legal/PrivacyPolicy';
+
+import Footer from '../footer/Footer';
 
 import theme from '../../../theme';
 
 const styles = theme => ({
+  flexContainer: {
+    display: 'flex',
+    minHeight: '100vh',
+    flexDirection: 'column'
+  },
+  contentContainer: {
+    flex: 1
+  },
   content: {
     padding: theme.spacing.unit,
     marginTop: 4 * theme.spacing.unit,
@@ -32,16 +44,21 @@ class App extends Component {
     return (
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
-        <Router>
-          <div>
-            <AppBar auth={{ user: { name: 'Alejandro' } }} />
 
-            <div className={classes.content}>
-              <Route exact path="/" component={HomePage} />
-              <Route path="/categories" component={CategoriesPage} />
-              <Route path="/proposals" component={ProposalsPage} />
-              <Route path="/institutions" component={InstitutionsPage} />
+        <Router>
+          <div className={classes.flexContainer}>
+            <div className={classes.contentContainer}>
+              <AppBar auth={{ user: { name: 'Alejandro' } }} />
+              <div className={classes.content}>
+                <Route exact path="/" component={HomePage} />
+                <Route path="/categories" component={CategoriesPage} />
+                <Route path="/proposals" component={ProposalsPage} />
+                <Route path="/institutions" component={InstitutionsPage} />
+                <Route path="/terms" component={Terms} />
+                <Route path="/privacy" component={PrivacyPolicy} />
+              </div>
             </div>
+            <Footer />
           </div>
         </Router>
       </MuiThemeProvider>
