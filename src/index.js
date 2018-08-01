@@ -5,13 +5,16 @@ import { Provider } from 'react-redux';
 import { combineReducers, createStore } from 'redux';
 
 import { App } from './app';
+import { I18nProvider } from './app/i18n';
 import registerServiceWorker from './registerServiceWorker';
 
 // Import module reducers
+import { i18n } from './app/i18n';
 import { categorySelection } from './category-selection';
 import { categories } from './categories';
 
 const rootReducer = combineReducers({
+  i18n,
   categorySelection,
   categories
 });
@@ -23,7 +26,9 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <I18nProvider>
+      <App />
+    </I18nProvider>
   </Provider>,
   document.getElementById('root')
 );
