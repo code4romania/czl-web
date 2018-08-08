@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { I18nextProvider } from 'react-i18next';
 import { Provider } from 'react-redux';
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
 import { App } from './app';
-import { I18nProvider } from './app/i18n';
+import { i18nInstance } from './app/i18n';
 import registerServiceWorker from './registerServiceWorker';
 
 // Import module reducers
@@ -28,9 +29,9 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <I18nProvider>
+    <I18nextProvider i18n={i18nInstance}>
       <App />
-    </I18nProvider>
+    </I18nextProvider>
   </Provider>,
   document.getElementById('root')
 );

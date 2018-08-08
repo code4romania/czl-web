@@ -1,2 +1,2 @@
-export { default as I18nProvider } from './I18nProvider';
+export { default as i18nInstance } from './i18n';
 export { default as i18n } from './reducer';
