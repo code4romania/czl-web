@@ -1,5 +1,8 @@
 import i18next from 'i18next';
 
+import ro from './translations/ro.json';
+import en from './translations/en.json';
+
 i18next.init({
   interpolation: {
     // React already does escaping
@@ -7,20 +10,8 @@ i18next.init({
   },
   lng: 'ro',
   resources: {
-    ro: {
-      translation: {
-        proposals: {
-          pageTitle: 'Pagina de propuneri'
-        }
-      }
-    },
-    en: {
-      translation: {
-        proposals: {
-          pageTitle: 'Proposals page'
-        }
-      }
-    }
+    ro,
+    en
   }
 });
 
