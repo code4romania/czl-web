@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 
-export default class ProposalsPage extends Component {
+class ProposalsPage extends Component {
   render() {
-    return <p>Proposals page</p>;
+    return <p>{this.props.t('proposals.pageTitle')}</p>;
   }
 }
+
+ProposalsPage.propTypes = {
+  // translate HoC:
+  t: PropTypes.func
+};
+
+export default translate()(ProposalsPage);
